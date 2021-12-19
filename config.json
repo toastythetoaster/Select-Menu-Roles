@@ -1,19 +1,34 @@
 {
-    "token":"", //ur bot token here
-    "r1":"", //role 1 id
-    "r2":"", //role2 id
-    "r3":"", //role3 id
-    "r4":"", //role4id
-    "r5":"",//role5id
-    "r1m":"",//role 1 emoji
-    "r2m":"",//role 2 emoji
-    "r3m":"",//role3 emoji
-    "r4m":"",//role4 emoji
-    "r5m":""//role5 emoji
-  
+    "roles": [
+        {
+            "label": "role 1",
+            "description": "some text for role 1",
+            "value": "922196234071068734",
+            "emoji": "❤"
+        },
+        {
+            "label": "role 2",
+            "description": "some text for role 2",
+            "value": "922196262592344136",
+            "emoji": "🧡"
+        },
+        {
+            "label": "role 3",
+            "description": "some text for role 3",
+            "value": "922196291184910347",
+            "emoji": "💛"
+        },
+        {
+            "label": "role 4",
+            "description": "some text for role 4",
+            "value": "922196316564639754",
+            "emoji": "💚"
+        },
+        {
+            "label": "role 5",
+            "description": "some text for role 5",
+            "value": "922196349330522112",
+            "emoji": "💙"
+        }
+    ]
 }
-/*
-@{Warning} -
-remove all comments from this file
-
-*/
