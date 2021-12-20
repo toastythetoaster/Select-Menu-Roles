@@ -1,0 +1,24 @@
+{
+    "guilds": {
+        "guild_id": {
+            "message": "Main role menu message",
+            "roleMenus": [
+                {
+                    "name": "Role menu name",
+                    "emoji": "An emoji that represents the role menu",
+                    "message": "Role menu message",
+                    "placeholder": "Dropdown placeholder",
+                    "removeExisting": true,
+                    "roles": [
+                        {
+                            "label": "Role name",
+                            "description": "Role description",
+                            "value": "role_id",
+                            "emoji": "An emoji that represents the role"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
