@@ -12,16 +12,21 @@ client.on('interactionCreate', async (interaction) => {
     if (!Object.keys(guilds).includes(interaction.guildId)) return;
     console.log(`[INTERACTIONS] New interaction of type COMMAND with name ${interaction.commandName}`);
 	switch (interaction.commandName) {
-        case 'test':
+        case 'rolemenu':
             const buttons = new MessageActionRow();
             let guild = guilds[interaction.guildId];
             guild.roleMenus.forEach(roleMenu => {
                 buttons.addComponents(new MessageButton({ label: roleMenu.name, emoji: roleMenu.emoji, style: 'PRIMARY', customId: `roleMenu-${interaction.guildId}-${roleMenu.name}` }));
             });
-            await interaction.reply(new MessagePayload(interaction.channel, {
+            const destination = interaction.options.getChannel('destination');
+            destination.send(new MessagePayload(interaction.options.getChannel('destination'), {
                 content: guild.message,
                 components: [buttons]
             }));
+            await interaction.reply({
+                content: `Sent role menu to <#${destination.id}>!`,
+                ephemeral: true
+            });
             break;
         default:
             console.log(`[INTERACTIONS] Unknown command: ${interaction.commandName}`);
@@ -115,11 +120,11 @@ client.on('interactionCreate', async (interaction) => {
 });
 
 const constructRoleMenuDropdown = (guildId, roleMenu, defaultRole) => {
-    if (defaultRole) {
-        let defaultRoleIndex = roleMenu.roles.findIndex(role => role.value === defaultRole.value);
-        roleMenu.roles = roleMenu.roles.filter(role => role.value !== defaultRole.value);
-        roleMenu.roles.splice(defaultRoleIndex, 0, { ...defaultRole, default: true });
-    }
+    // if (defaultRole) {
+    //     let defaultRoleIndex = roleMenu.roles.findIndex(role => role.value === defaultRole.value);
+    //     roleMenu.roles = roleMenu.roles.filter(role => role.value !== defaultRole.value);
+    //     roleMenu.roles.splice(defaultRoleIndex, 0, { ...defaultRole, default: true });
+    // }
     return new MessageActionRow().addComponents(new MessageSelectMenu()
         .setCustomId(`roleMenu-${guildId}-${roleMenu.name}`)
         .setPlaceholder(roleMenu.placeholder)
