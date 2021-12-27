@@ -1,6 +1,8 @@
 const { MessageActionRow, MessageSelectMenu, MessageButton, MessagePayload } = require('discord.js');
-const { guilds } = require('./config.json');
+
 const Logger = require('./logger');
+const { guilds } = require('./config.json');
+
 const logger = new Logger('interactions');
 
 const constructActionRow = (...components) => {
